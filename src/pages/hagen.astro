@@ -3,17 +3,17 @@ import Layout from "../layouts/Layout.astro";
 
 import fetchApi from "../libs/strapi";
 
-let homeContent;
+let gardenContent;
 try {
-  homeContent = await fetchApi("home");
+  gardenContent = await fetchApi("garden");
 } catch (e) {
   return Astro.redirect("/404");
 }
 
-console.log(homeContent);
+console.log(gardenContent);
 ---
 
 <Layout>
-  <p>{homeContent.title}</p>
-  <p>{homeContent.description}</p>
+  <p>{gardenContent.title}</p>
+  <p>{gardenContent.description}</p>
 </Layout>

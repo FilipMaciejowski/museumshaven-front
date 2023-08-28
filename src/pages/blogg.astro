@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import fetchApi from "../libs/strapi";
+
+let articles;
+try {
+  articles = await fetchApi("blog-posts", true);
+} catch (e) {
+  return Astro.redirect("/404");
+}
+
+console.log(articles);
+---
+
+<Layout>blog</Layout>
