@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import fetchApi from "../../libs/strapi";
+
+let articles;
+try {
+  articles = await fetchApi("blog-posts", true);
+} catch (e) {
+  console.log(e);
+}
+---
+
+<Layout title="blogg">
+  <ul>
+    {
+      articles.data.map((article) => (
+        <a href={`/blogg/${article.attributes.slug}/`}>
+          {article.attributes.title}
+        </a>
+      ))
+    }
+  </ul>
+</Layout>

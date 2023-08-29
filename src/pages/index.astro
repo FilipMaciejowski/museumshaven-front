@@ -7,7 +7,7 @@ let homeContent;
 try {
   homeContent = await fetchApi("home");
 } catch (e) {
-  return Astro.redirect("/404");
+  console.log(e);
 }
 
 console.log(homeContent);

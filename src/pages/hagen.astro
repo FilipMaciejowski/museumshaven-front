@@ -7,13 +7,13 @@ let gardenContent;
 try {
   gardenContent = await fetchApi("garden");
 } catch (e) {
-  return Astro.redirect("/404");
+  console.log(e);
 }
 
 console.log(gardenContent);
 ---
 
-<Layout>
+<Layout title="hagen">
   <p>{gardenContent.title}</p>
   <p>{gardenContent.description}</p>
 </Layout>

@@ -7,13 +7,13 @@ let menuContent;
 try {
   menuContent = await fetchApi("menu");
 } catch (e) {
-  return Astro.redirect("/404");
+  console.log(e);
 }
 
 console.log(menuContent);
 ---
 
-<Layout>
+<Layout title="meny">
   <p>{menuContent.title}</p>
   <p>{menuContent.description}</p>
 </Layout>

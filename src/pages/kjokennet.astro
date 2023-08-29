@@ -7,13 +7,13 @@ let kitchenContent;
 try {
   kitchenContent = await fetchApi("kitchen");
 } catch (e) {
-  return Astro.redirect("/404");
+  console.log(e);
 }
 
 console.log(kitchenContent);
 ---
 
-<Layout>
+<Layout title="kjokennet">
   <p>{kitchenContent.title}</p>
   <p>{kitchenContent.description}</p>
 </Layout>

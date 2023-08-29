@@ -7,13 +7,13 @@ let aboutContent;
 try {
   aboutContent = await fetchApi("about");
 } catch (e) {
-  return Astro.redirect("/404");
+  console.log(e);
 }
 
 console.log(aboutContent);
 ---
 
-<Layout>
+<Layout title="om oss">
   <p>{aboutContent.title}</p>
   <p>{aboutContent.description}</p>
 </Layout>
