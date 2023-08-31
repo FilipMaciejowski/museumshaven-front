@@ -9,11 +9,11 @@ try {
 } catch (e) {
   console.log(e);
 }
-
-console.log(menuContent);
 ---
 
 <Layout title="meny">
   <p>{menuContent.title}</p>
   <p>{menuContent.description}</p>
+  <!-- jeśli ma być ładny link do pdfa to najlepiej wrzucić go do public w tym projekcie -->
+  <a href={`${import.meta.env.STRAPI_URL}${menuContent.file.data.attributes.url}`} target="_blank" rel="noopener noreferrer">MENU PDF FILE</a>
 </Layout>

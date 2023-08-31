@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
 
 import fetchApi from "../libs/strapi";
@@ -9,11 +11,11 @@ try {
 } catch (e) {
   console.log(e);
 }
-
-console.log(homeContent);
 ---
 
 <Layout>
   <p>{homeContent.title}</p>
   <p>{homeContent.description}</p>
+  <p><Image src={`${import.meta.env.STRAPI_URL}${homeContent.img.data.attributes.url}`} width={homeContent.img.data.attributes.width} height={homeContent.img.data.attributes.height}  alt=""/>
+  </p>
 </Layout>

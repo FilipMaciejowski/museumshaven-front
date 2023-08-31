@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from "../../layouts/Layout.astro";
 
 import fetchApi from "../../libs/strapi";
@@ -21,4 +23,6 @@ const article = Astro.props;
 <Layout title={article.title}>
   <p>{article.title}</p>
   <p>{article.content}</p>
+  <p><Image src={`${import.meta.env.STRAPI_URL}${article.img.data.attributes.url}`} width={article.img.data.attributes.width} height={article.img.data.attributes.height}  alt=""/>
+  </p>
 </Layout>

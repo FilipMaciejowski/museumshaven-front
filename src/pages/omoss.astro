@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
 
 import fetchApi from "../libs/strapi";
@@ -10,10 +12,12 @@ try {
   console.log(e);
 }
 
-console.log(aboutContent);
+console.log(aboutContent.imgs.data);
 ---
 
 <Layout title="om oss">
   <p>{aboutContent.title}</p>
   <p>{aboutContent.description}</p>
+  {aboutContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
+  </p>))}
 </Layout>
