@@ -8,11 +8,11 @@ import fetchApi from "../libs/strapi";
 let aboutContent;
 try {
   aboutContent = await fetchApi("about");
+  console.log(aboutContent)
 } catch (e) {
   console.log(e);
 }
 ---
-
 <Layout title="om oss">
   <p>{aboutContent.title}</p>
   <p>{aboutContent.description}</p>
