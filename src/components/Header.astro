@@ -24,19 +24,23 @@ const currentPath = pathname.slice(1);
   >
   <nav>
     <ul class="nav__list">
-      <li class={currentPath === "" ? "nav__item active" : "nav__item"}>
+      <li class={currentPath === "" ? "active" : "nav__item"}>
         <a class="nav__link" href="/">home</a>
       </li>
-      <li class={currentPath === "meny" ? "nav__item active" : "nav__item"}>
+      <li class={currentPath === "meny" ? "active" : "nav__item"}>
         <a class="nav__link" href="/meny">meny</a>
       </li>
-      <li class={currentPath === "blogg" ? "nav__item active" : "nav__item"}>
+      <li
+        class={currentPath === "blogg" || currentPath.includes("/")
+          ? "active"
+          : "nav__item"}
+      >
         <a class="nav__link" href="/blogg">blogg</a>
       </li>
-      <li class={currentPath === "omoss" ? "nav__item active" : "nav__item"}>
+      <li class={currentPath === "omoss" ? "active" : "nav__item"}>
         <a class="nav__link" href="/omoss">om oss</a>
       </li>
-      <li class={currentPath === "kontakt" ? "nav__item active" : "nav__item"}>
+      <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
         <a class="nav__link" href="/kontakt">kontaktsjema</a>
       </li>
     </ul>
@@ -49,8 +53,7 @@ const currentPath = pathname.slice(1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 7.5vh;
-    background-color: var(--ligthBrown);
+    height: 15vh;
   }
   .Header__logo {
     display: flex;
@@ -60,6 +63,7 @@ const currentPath = pathname.slice(1);
   .Header__logo svg {
     width: 7.5rem;
     margin-left: 1rem;
+    padding: 0.65rem;
   }
   ul.nav__list {
     height: auto;
@@ -69,17 +73,34 @@ const currentPath = pathname.slice(1);
   }
   li.nav__item {
     margin-right: 1rem;
-
-    font-family: "Lora";
     font-weight: 400;
-
+    font-family: "Inter";
     text-align: center;
     vertical-align: middle;
     line-height: 100%;
+    padding: 0.65rem;
+    border: 2px solid transparent;
   }
 
   .active {
-    background-color: red;
+    margin-right: 1rem;
+    font-weight: 400;
+    font-family: "Inter";
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100%;
+    padding: 0.65rem;
+    border: 2px solid var(--ligthBrown);
+    border-radius: 25px;
+    background-color: var(--ligthBrown);
+    position: relative;
+  }
+
+  .active::before {
+    position: absolute;
+    content: url("../../public/Magpie.svg");
+    top: -25px;
+    left:-5px;
   }
 
   nav ul li a {
