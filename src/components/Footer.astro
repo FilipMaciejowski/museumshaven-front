@@ -1,9 +1,77 @@
-<footer class="footer__main">footer</footer>
+---
+import "../styles/fonts.css";
+import "../styles/variables.css";
+const date = new Date();
+const year = date.getFullYear();
+---
 
+<footer class="footer__main">
+  <div class="development__container">
+    <p class="development__paragraph">Design og utvikling:</p>
+    <img src="../public/DIS.svg" />
+  </div>
+  <div class="links__container">
+    <div class="socialMedia__container">
+      <a class="link__item"></a>
+      <a class="link__item"> </a>
+    </div>
+    <div class="name__container">
+      <img class="logo__mini" src="../../public/logoMini.svg" />
+      <p class="name__paragraph">
+        Museumshaven, <span class="name__year">{year}</span>
+      </p>
+    </div>
+  </div>
+</footer>
 <style>
   .footer__main {
-    height: 5vh;
-    width: 100%;
+    height: 7.5vh;
+
     background-color: #282623;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4.65rem;
+  }
+  img {
+    padding: 0 0.5rem;
+  }
+  .development__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .development__paragraph {
+    color: white;
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 0.85rem;
+  }
+
+  .name__container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* .links__container{
+    display: flex;
+  } */
+
+  .logo__mini {
+    width: 1rem;
+  }
+  .name__paragraph {
+    color: white;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
+
+  p.name__paragraph span.name__year {
+    font-weight: 100;
+    color: white;
+    font-family: "Inter";
+    font-size: .85rem;
   }
 </style>
