@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 
@@ -13,10 +13,40 @@ try {
 }
 ---
 
-<Layout title="kjokennet">
-
-  <p>{kitchenContent.title}</p>
-  <p>{kitchenContent.description}</p>
-  <p><Image src={`${import.meta.env.STRAPI_URL}${kitchenContent.img.data.attributes.url}`} width={kitchenContent.img.data.attributes.width} height={kitchenContent.img.data.attributes.height}  alt=""/>
-  </p>
+<Layout title="hagen">
+  <div class="content__container">
+    <img class="garden__img" src="/kitchenImg.svg" />
+    <div class="description__container">
+      <h1 class="header__main">{kitchenContent.title}</h1>
+      <p class="description__text">{kitchenContent.description}</p>
+    </div>
+  </div>
+  <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${kitchenContent.img.data.attributes.url}`} width={kitchenContent.img.data.attributes.width} height={kitchenContent.img.data.attributes.height}  alt=""/>
+  </p> -->
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  div.description__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  p.description__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+</style>
