@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "../styles/fonts.css";
+import "../styles/variables.css";
 ---
 
 <Layout>
@@ -69,7 +71,12 @@ import Layout from "../layouts/Layout.astro";
         utstillinger med ulike temaer. Forvaltergården har siden 2011 vært
         konsolidert med Næs Jernverksmuseum.
       </p>
-      <a href="">Les mer om Næs jernverk</a>
+      <a
+        class="link__element"
+        href="https://www.jernverksmuseet.no/"
+        target="_blank">Les mer om Næs jernverk</a
+      >
+      <img class="city" src="/Tvedestrand.png" />
     </div>
   </div>
 </Layout>
@@ -78,14 +85,54 @@ import Layout from "../layouts/Layout.astro";
   .content__container {
     display: flex;
     justify-content: center;
+    margin: 2rem 0;
   }
 
   .description__container {
     width: 50%;
+    margin-left: 1.5rem;
+  }
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 2rem;
+    font-weight: 600;
   }
 
+  h2.header__under {
+    font-family: "Lora";
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
+  p.headline__undertext {
+    font-family: "Lora";
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+  p.description__text {
+    font-family: "Lora";
+    font-size: 1rem;
+    font-weight: 400;
+  }
   .museum__img {
     width: 20rem;
     height: 20rem;
+  }
+
+  a.link__element {
+    text-decoration: none;
+    color: black;
+    font-family: "Lora";
+    font-weight: 500;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  a.link__element:hover {
+    text-decoration: underline;
+  }
+
+  img.city {
+    margin: 1rem 0;
   }
 </style>
