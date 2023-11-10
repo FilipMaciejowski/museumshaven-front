@@ -11,11 +11,57 @@ try {
 }
 ---
 
-<Layout title="meny">
-  
-  <p>{menuContent.title}</p>
-  <p>{menuContent.description}</p>
+<Layout title="hagen">
+  <div class="content__container">
+    <img class="garden__img" src="/Menu.svg" />
+    <div class="description__container">
+      <h1 class="header__main">{menuContent.title}</h1>
+      <p class="description__text">{menuContent.description}</p>
+      <a
+        class="pdf__link_el"
+        href={`${import.meta.env.STRAPI_URL}${
+          menuContent.file.data.attributes.url
+        }`}
+        target="_blank"
+        rel="noopener noreferrer">Menu (.pdf-fil)</a
+      >
+    </div>
+  </div>
   <!-- jeśli ma być ładny link do pdfa to najlepiej wrzucić go do public w tym projekcie -->
-  <a href={`${import.meta.env.STRAPI_URL}${menuContent.file.data.attributes.url}`} target="_blank" rel="noopener noreferrer">MENU PDF FILE</a>
-
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  div.description__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  p.description__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+  a.pdf__link_el {
+    text-decoration: none;
+    font-family: "Lora";
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  a.pdf__link_el:hover {
+    text-decoration: underline;
+  }
+</style>
