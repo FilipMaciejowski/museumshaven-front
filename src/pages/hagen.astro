@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 
@@ -14,10 +14,49 @@ try {
 ---
 
 <Layout title="hagen">
-  
-  <p>{gardenContent.title}</p>
-  <p>{gardenContent.description}</p>
-  {gardenContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
-  </p>))}
-
+  <div class="content__container">
+    <img class="garden__img" src="/HagenImg.svg" />
+    <div class="description__container">
+      <h1 class="header__main">{gardenContent.title}</h1>
+      <p class="description__text">{gardenContent.description}</p>
+    </div>
+  </div>
+  <!-- {
+    gardenContent.imgs.data.map((img) => (
+      <p>
+        <Image
+          src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`}
+          width={img.attributes.width}
+          height={img.attributes.height}
+          alt=""
+        />
+      </p>
+    ))
+  } -->
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  div.description__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  p.description__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+</style>
