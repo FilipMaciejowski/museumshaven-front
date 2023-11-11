@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import Layout from "../../layouts/Layout.astro";
 
@@ -20,9 +20,41 @@ export async function getStaticPaths() {
 const article = Astro.props;
 ---
 
-<Layout title={article.title}>
-  <p>{article.title}</p>
-  <p>{article.content}</p>
-  <p><Image src={`${import.meta.env.STRAPI_URL}${article.img.data.attributes.url}`} width={article.img.data.attributes.width} height={article.img.data.attributes.height}  alt=""/>
-  </p>
+<Layout title="hagen">
+  <div class="content__container">
+    <img class="garden__img" src="/Article.svg" />
+    <div class="description__container">
+      <h1 class="header__main">{article.title}</h1>
+      <p class="description__text">{article.content}</p>
+    </div>
+  </div>
+  <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${article.img.data.attributes.url}`} width={article.img.data.attributes.width} height={article.img.data.attributes.height}  alt=""/>
+  </p> -->
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 2rem 0;
+  }
+  div.description__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  p.description__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+</style>

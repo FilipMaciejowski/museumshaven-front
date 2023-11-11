@@ -12,13 +12,94 @@ try {
 ---
 
 <Layout title="blogg">
-  <ul>
-    {
-      articles.data.map((article) => (
-        <a href={`/blogg/${article.attributes.slug}/`}>
-          {article.attributes.title}
-        </a>
-      ))
-    }
-  </ul>
+  <div class="content__container">
+    <img class="garden__img" src="/Blogg.svg" />
+    <div class="blogg__container">
+      <h1 class="header__main">Blogg</h1>
+      <ul class="article__list">
+        {
+          articles.data.map((article) => (
+            <a
+              class="list__element_link"
+              href={`/blogg/${article.attributes.slug}/`}
+            >
+              <li class="list__element">
+                <div class="link__element_text">
+                  <p class="blog__element_title">{article.attributes.title}</p>
+                  <p class="blog__element_date">11 Dec, 2023</p>
+                </div>
+                <img src="/Arrow_blog.svg" />
+              </li>
+            </a>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  div.blogg__container {
+    width: 50vw;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  ul.article__list {
+    text-decoration: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
+  li.list__element {
+    list-style: none;
+    padding: 1rem 2rem;
+    background-color: var(--ligthBrown);
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 17.5px;
+    transition: all 0.25s ease-in-out;
+  }
+  li.list__element:hover {
+    background-color: var(--brown);
+    transition: all 0.25s ease-in-out;
+  }
+  a.list__element_link {
+    color: black;
+    text-decoration: none;
+    dispaly: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  p.blog__element_title {
+    margin: 0;
+    width: 100%;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  p.blog__element_date {
+    margin: 0;
+    width: 100%;
+    font-family: "Lora";
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--greyDark);
+  }
+</style>
