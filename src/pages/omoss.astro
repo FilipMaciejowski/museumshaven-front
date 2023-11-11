@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 
@@ -8,14 +8,52 @@ import fetchApi from "../libs/strapi";
 let aboutContent;
 try {
   aboutContent = await fetchApi("about");
-  console.log(aboutContent)
+  console.log(aboutContent);
 } catch (e) {
   console.log(e);
 }
 ---
-<Layout title="om oss">
-  <p>{aboutContent.title}</p>
-  <p>{aboutContent.description}</p>
-  {aboutContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
-  </p>))}
+
+<Layout title="hagen">
+  <div class="content__container">
+    <img class="garden__img" src="/AboutMagpie.svg" />
+    <div class="description__container">
+      <h1 class="header__main">{aboutContent.title}</h1>
+      <!-- {aboutContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
+      </p>))} -->
+      <p class="description__text">{aboutContent.description}</p>
+      <img class="panorama__img" src="/Panorama.svg" />
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 2rem 0;
+  }
+  div.description__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  p.description__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  img.panorama__img {
+    margin: 5rem 0;
+  }
+</style>
