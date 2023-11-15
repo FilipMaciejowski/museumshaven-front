@@ -4,5 +4,106 @@ import ContactForm from "../components/contactForm.astro";
 ---
 
 <Layout title="kontakt">
-  <ContactForm />
+  <div class="content__container">
+    <img class="contact__img" src="/ContactImg.svg" />
+
+    <div class="contactForm__container">
+      <div class="headline__container">
+        <h1 class="header__main">Kontakt</h1>
+        <img class="contact__description" src="/Sparrow.svg" />
+      </div>
+      <p class="headline__description">
+        Ta kontakt via telefon/epost eller benytt kontaktskjema under.
+      </p>
+      <div class="address__container">
+        <p class="address__headline">Adresse</p>
+        <p class="address__content">Hovedgata 76, Tvedestrand</p>
+      </div>
+      <div class="phone__container">
+        <p class="phone__headline">Telefon</p>
+        <p class="phone__content">(+47) 903 67 370</p>
+      </div>
+      <p class="email__text">linnmorken@icloud.com</p>
+      <ContactForm />
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .content__container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .contactForm__container {
+    width: 50%;
+    margin-left: 2rem;
+  }
+
+  .headline__container {
+    display: flex;
+    align-items: center;
+  }
+
+  img.sparrow__img {
+    width: 2rem;
+  }
+
+  h1.header__main {
+    margin: 0 1.5rem 0 0;
+    font-family: "Lora";
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 3rem;
+  }
+
+  p.headline__description {
+    margin: 1rem 0;
+    font-family: "Lora";
+    font-size: 0.85rem;
+    font-weight: 300;
+  }
+
+  .address__container {
+    margin: 2rem 0;
+  }
+
+  .address__headline {
+    margin: 0 0;
+    font-family: "Lora";
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .address__content {
+    margin: 0 0;
+    font-family: "Lora";
+    font-size: 1rem;
+    font-weight: 200;
+  }
+  .phone__container {
+    margin: 2rem 0;
+  }
+  .phone__headline {
+    margin: 0 0;
+    font-family: "Lora";
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .phone__content {
+    margin: 0 0;
+    font-family: "Lora";
+    font-size: 1rem;
+    font-weight: 200;
+  }
+
+  .email__text {
+    margin: 2rem 0;
+    font-family: "Lora";
+    font-size: 1rem;
+    font-weight: 200;
+  }
+</style>

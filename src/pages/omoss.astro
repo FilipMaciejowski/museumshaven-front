@@ -5,16 +5,14 @@ import Layout from "../layouts/Layout.astro";
 
 import fetchApi from "../libs/strapi";
 const makeHTML = (text: string, fragment: string) => {
-  if(text.includes(fragment)){
-    
+  if (text.includes(fragment)) {
   }
-}
+};
 let aboutContent;
 try {
   aboutContent = await fetchApi("about");
 
   aboutContent.replace(/\n/g, "<br />");
-
 } catch (e) {
   console.log(e);
 }
@@ -28,7 +26,9 @@ try {
       <!-- {aboutContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
       </p>))} -->
       <p class="description__text">
-        <!-- {console.log(ReactHtmlParser(aboutContent))} -->
+        {
+          aboutContent.description
+        }<!-- {console.log(ReactHtmlParser(aboutContent))} -->
       </p>
       <img class="panorama__img" src="/Panorama.svg" />
     </div>
