@@ -1,6 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/contactForm.astro";
+import fetchApi from "../libs/strapi";
+const makeHTML = (text: string, fragment: string) => {
+  if (text.includes(fragment)) {
+  }
+};
+let contactContent;
+try {
+  contactContent = await fetchApi("contact");
+
+  contactContent.replace(/\n/g, "<br />");
+} catch (e) {
+  console.log(e);
+}
 ---
 
 <Layout title="kontakt">
@@ -17,13 +30,13 @@ import ContactForm from "../components/contactForm.astro";
       </p>
       <div class="address__container">
         <p class="address__headline">Adresse</p>
-        <p class="address__content">Hovedgata 76, Tvedestrand</p>
+        <p class="address__content">{contactContent.address}</p>
       </div>
       <div class="phone__container">
         <p class="phone__headline">Telefon</p>
-        <p class="phone__content">(+47) 903 67 370</p>
+        <p class="phone__content">{contactContent.phone}</p>
       </div>
-      <p class="email__text">linnmorken@icloud.com</p>
+      <p class="email__text">{contactContent.email}</p>
       <ContactForm />
     </div>
   </div>

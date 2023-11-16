@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "astro": "^3.0.3",
-    "mailgun-js": "^0.6.7",
+    "mailgun-js": "^0.22.0",
     "react-html-parser": "^2.0.2",
     "sanitize-html": "^2.11.0",
     "sass": "^1.68.0"
