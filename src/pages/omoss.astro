@@ -22,14 +22,24 @@ try {
   <div class="content__container">
     <img class="garden__img" src="/AboutMagpie.svg" />
     <div class="description__container">
+      <!-- <div class="header__container"> -->
       <h1 class="header__main">{aboutContent.title}</h1>
-      <!-- {aboutContent.imgs.data.map((img) => (<p><Image src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`} width={img.attributes.width} height={img.attributes.height}  alt=""/>
-      </p>))} -->
+
+      <!-- </div> -->
       <p class="description__text">
         {
           aboutContent.description
         }<!-- {console.log(ReactHtmlParser(aboutContent))} -->
       </p>
+      {
+        aboutContent.imgs.data.map((img) => (
+          <img
+            class="portrait__img"
+            src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`}
+            alt=""
+          />
+        ))
+      }
       <img class="panorama__img" src="/Panorama.svg" />
     </div>
   </div>
@@ -41,6 +51,18 @@ try {
     justify-content: center;
     align-items: start;
     margin: 2rem 0;
+  }
+
+  div.header__container {
+    display: flex;
+    align-items: center;
+  }
+
+  img.portrait__img {
+    margin-top: 2rem;
+    width: 10rem;
+    border: 3px solid var(--brownDark);
+    border-radius: 50%;
   }
   div.description__container {
     width: 50%;
