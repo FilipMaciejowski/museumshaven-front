@@ -19,7 +19,11 @@ try {
     <div class="description__container">
       <h1 class="header__main">{kitchenContent.title}</h1>
       <p class="description__text">{kitchenContent.description}</p>
+      <div class="img__wrapper">
+        <img class="pig__img" src="/Pig.svg" />
+      </div>
     </div>
+    <img class="fish__img" src="/Fish.svg" />
   </div>
   <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${kitchenContent.img.data.attributes.url}`} width={kitchenContent.img.data.attributes.width} height={kitchenContent.img.data.attributes.height}  alt=""/>
   </p> -->
@@ -29,7 +33,8 @@ try {
   .content__container {
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    align-items: start;
+    margin: 6.25rem 0;
   }
   div.description__container {
     width: 50%;
@@ -48,5 +53,22 @@ try {
     font-family: "Lora";
     font-size: 1.25rem;
     font-weight: 400;
+  }
+
+  .img__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pig__img {
+    margin: 5rem auto;
+  }
+
+  .fish__img {
+    position: absolute;
+    width: 6rem;
+    top: 500px;
+    right: 200px;
   }
 </style>
