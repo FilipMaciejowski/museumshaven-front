@@ -3,38 +3,54 @@ import "../styles/fonts.css";
 import "../styles/variables.css";
 const date = new Date();
 const year = date.getFullYear();
+const { meny } = Astro.props;
 ---
 
-<footer class="footer__main">
-  <div class="development__container">
-    <p class="development__paragraph">Design og utvikling:</p>
-    <img src="/DIS.svg" />
-  </div>
-  <div class="links__container">
-    <div class="socialMedia__container">
-      <a class="link__item"></a>
-      <a class="link__item"> </a>
+<footer>
+  {
+    meny && (
+      <div class="img__container">
+        <img class="drinks__img" src="./Drinks.svg" />
+      </div>
+    )
+  }
+  <div class="footer__main">
+    <div class="development__container">
+      <p class="development__paragraph">Design og utvikling:</p>
+      <img src="/DIS.svg" />
     </div>
-    <div class="name__container">
-      <img class="logo__mini" src="/logoMini.svg" />
-      <p class="name__paragraph">
-        Museumshaven, <span class="name__year">{year}</span>
-      </p>
+    <div class="links__container">
+      <div class="socialMedia__container">
+        <a class="link__item"></a>
+        <a class="link__item"> </a>
+      </div>
+      <div class="name__container">
+        <img class="logo__mini" src="/logoMini.svg" />
+        <p class="name__paragraph">
+          Museumshaven, <span class="name__year">{year}</span>
+        </p>
+      </div>
     </div>
   </div>
 </footer>
 <style>
   .footer__main {
     height: 7.5vh;
-
     background-color: #282623;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4.65rem;
   }
-  img {
-    padding: 0 0.5rem;
+
+  div.img__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  img.drinks__img {
+    position: relative;
+    top: 0.5px;
   }
   .development__container {
     height: 100%;
@@ -47,7 +63,6 @@ const year = date.getFullYear();
     font-family: "Inter";
     font-weight: 300;
     font-size: 0.85rem;
-    
   }
 
   .name__container {
@@ -73,6 +88,6 @@ const year = date.getFullYear();
     font-weight: 100;
     color: white;
     font-family: "Inter";
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
 </style>

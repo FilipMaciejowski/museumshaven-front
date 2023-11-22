@@ -19,8 +19,12 @@ try {
     <div class="description__container">
       <h1 class="header__main">{gardenContent.title}</h1>
       <p class="description__text">{gardenContent.description}</p>
+      <div class="img__wrapper">
+        <img class="garden_decor" src="/Garden_decor.svg" />
+      </div>
     </div>
   </div>
+
   <!-- {
     gardenContent.imgs.data.map((img) => (
       <p>
@@ -37,9 +41,10 @@ try {
 
 <style>
   .content__container {
+    margin: 4rem auto 8rem auto;
     display: flex;
     justify-content: center;
-    margin: 6.25rem 0;
+    align-items: start;
   }
   div.description__container {
     width: 50%;
@@ -58,5 +63,14 @@ try {
     font-family: "Lora";
     font-size: 1.25rem;
     font-weight: 400;
+  }
+
+  .img__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .garden_decor {
+    position: relative;
   }
 </style>

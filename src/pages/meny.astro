@@ -11,7 +11,7 @@ try {
 }
 ---
 
-<Layout title="hagen">
+<Layout meny={true} title="hagen">
   <div class="content__container">
     <img class="garden__img" src="/Menu.svg" />
     <div class="description__container">
@@ -23,7 +23,7 @@ try {
           menuContent.file.data.attributes.url
         }`}
         target="_blank"
-        rel="noopener noreferrer">Menu (.pdf-fil)</a
+        rel="noopener noreferrer">Meny (.pdf-fil)</a
       >
     </div>
   </div>
@@ -32,9 +32,10 @@ try {
 
 <style>
   .content__container {
+    margin: 4rem auto 11.75rem auto;
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
+    
   }
   div.description__container {
     width: 50%;
@@ -59,9 +60,10 @@ try {
     font-family: "Lora";
     color: black;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   a.pdf__link_el:hover {
     text-decoration: underline;
+    text-decoration-color: var(--brown);
   }
 </style>
