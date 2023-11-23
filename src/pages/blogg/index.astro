@@ -28,7 +28,7 @@ try {
                   <p class="blog__element_title">{article.attributes.title}</p>
                   <p class="blog__element_date">11 Dec, 2023</p>
                 </div>
-                <img src="/Arrow_blog.svg" />
+                <img class="arrow__img" src="/Arrow_blog.svg" />
               </li>
             </a>
           ))
@@ -40,9 +40,9 @@ try {
 
 <style>
   .content__container {
+    margin: 4rem auto 8rem auto;
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
   }
   div.blogg__container {
     width: 50vw;
@@ -64,10 +64,10 @@ try {
 
   li.list__element {
     list-style: none;
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     background-color: var(--light_brown);
     margin: 1rem 0;
-    width: 100%;
+    width: 75%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -91,15 +91,19 @@ try {
     margin: 0;
     width: 100%;
     font-family: "Lora";
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
   }
   p.blog__element_date {
     margin: 0;
     width: 100%;
     font-family: "Lora";
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     font-weight: 300;
     color: var(--grey_dark);
+  }
+
+  img.arrow__img {
+    width: 2rem;
   }
 </style>

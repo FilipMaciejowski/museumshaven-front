@@ -17,14 +17,17 @@ try {
     <div class="description__container">
       <h1 class="header__main">{menuContent.title}</h1>
       <p class="description__text">{menuContent.description}</p>
-      <a
-        class="pdf__link_el"
-        href={`${import.meta.env.STRAPI_URL}${
-          menuContent.file.data.attributes.url
-        }`}
-        target="_blank"
-        rel="noopener noreferrer">Meny (.pdf-fil)</a
-      >
+      <div class="pdf__wrapper">
+        <a
+          class="pdf__link_el"
+          href={`${import.meta.env.STRAPI_URL}${
+            menuContent.file.data.attributes.url
+          }`}
+          target="_blank"
+          rel="noopener noreferrer">Meny (.pdf-fil)</a
+        >
+        <img class="hen__img" src="/Hen.svg" />
+      </div>
     </div>
   </div>
   <!-- jeśli ma być ładny link do pdfa to najlepiej wrzucić go do public w tym projekcie -->
@@ -35,7 +38,6 @@ try {
     margin: 4rem auto 11.75rem auto;
     display: flex;
     justify-content: center;
-    
   }
   div.description__container {
     width: 50%;
@@ -55,12 +57,21 @@ try {
     font-size: 1.25rem;
     font-weight: 400;
   }
+  div.pdf__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   a.pdf__link_el {
     text-decoration: none;
     font-family: "Lora";
     color: black;
     font-weight: 500;
     font-size: 1.5rem;
+  }
+
+  img.hen__img {
+    margin-left: 1rem;
   }
   a.pdf__link_el:hover {
     text-decoration: underline;

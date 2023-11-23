@@ -6,6 +6,7 @@ import "../styles/variables.css";
 import "../styles/fonts.css";
 const { title } = Astro.props;
 const { meny } = Astro.props;
+const { aboutUs } = Astro.props;
 let metaTitle = "";
 if (title) metaTitle = `${title} - `;
 ---
@@ -32,12 +33,12 @@ if (title) metaTitle = `${title} - `;
     <meta property="twitter:card" content="s" />
   </head>
   <body>
-    <Header />
+    <Header aboutUs={aboutUs}/>
     <section class="Page__content">
       <slot />
     </section>
     <Footer meny={meny} />
-    
+
     <style>
       html {
       }

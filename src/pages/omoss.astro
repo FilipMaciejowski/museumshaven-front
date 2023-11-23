@@ -18,7 +18,7 @@ try {
 }
 ---
 
-<Layout title="hagen">
+<Layout aboutUs={true} title="hagen">
   <div class="content__container">
     <img class="garden__img" src="/AboutMagpie.svg" />
     <div class="description__container">
@@ -50,7 +50,7 @@ try {
     display: flex;
     justify-content: center;
     align-items: start;
-    margin: 2rem 0;
+    margin: 4rem auto 8rem auto;
   }
 
   div.header__container {
@@ -67,6 +67,8 @@ try {
   div.description__container {
     width: 50%;
     margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
   }
 
   h1.header__main {
