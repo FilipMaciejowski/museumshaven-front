@@ -43,8 +43,8 @@ try {
 
 <style>
   .mainContent__wrapper {
-    margin: 4rem auto 8rem auto;
-    height: auto;
+    margin: 4rem 1rem;
+    min-height: 60vh;
     width: 78.5vw;
     display: flex;
     justify-content: space-between;
@@ -74,8 +74,8 @@ try {
     font-size: 1rem;
   }
 
-  .mainContent__navigation {
-    max-width: 45rem;
+  nav.mainContent__navigation {
+    width: 40vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,5 +115,54 @@ try {
     font-family: "Lora";
     font-weight: 400;
     padding: 0.5rem;
+  }
+
+  @media (max-width: 1100px) {
+    .mainContent__wrapper {
+      flex-direction: column;
+      width: auto;
+      padding: 2rem;
+      margin: auto 1rem;
+    }
+    .mainContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav.mainContent__navigation {
+      width: 100%;
+    }
+
+    p.mainContent__description{
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 825px) {
+    .mainContent__navList {
+      flex-direction: column;
+      min-height: 60vh;
+    }
+    .mainContent__navItem{
+      margin: 2rem auto;
+    }
+  }
+
+  @media(max-width: 450px){
+    .mainContent__wrapper{
+      padding: 1rem;
+    }
+    p.mainContent__title{
+      font-size: 2.5rem;
+    }
+    p.mainContent__undertext{
+      font-size: 1rem;
+    }
+    p.mainContent__description{
+      font-size: 0.85rem;
+      text-align: center;
+    }
   }
 </style>

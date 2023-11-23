@@ -17,7 +17,7 @@ const { meny } = Astro.props;
   <div class="footer__main">
     <div class="development__container">
       <p class="development__paragraph">Design og utvikling:</p>
-      <img src="/DIS.svg" />
+      <img class="logoDev__mini" src="/DIS.svg" />
     </div>
     <div class="links__container">
       <div class="socialMedia__container">
@@ -52,7 +52,7 @@ const { meny } = Astro.props;
   }
   img.drinks__img {
     position: relative;
-    top: 0.5px;
+    top: 1px;
   }
   .development__container {
     height: 100%;
@@ -91,5 +91,23 @@ const { meny } = Astro.props;
     color: white;
     font-family: "Inter";
     font-size: 0.85rem;
+  }
+
+  @media (max-width: 625px) {
+    .footer__main {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      padding: 1rem;
+    }
+
+    .logoDev__mini {
+      margin: 0 0 0 1rem;
+    }
+
+    .logo__mini{
+      margin: 0 1rem 0 0;
+    }
   }
 </style>
