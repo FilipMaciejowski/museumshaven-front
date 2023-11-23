@@ -20,7 +20,7 @@ try {
 
 <Layout aboutUs={true} title="hagen">
   <div class="content__container">
-    <img class="garden__img" src="/AboutMagpie.svg" />
+    <img class="magpie__img" src="/AboutMagpie.svg" />
     <div class="description__container">
       <!-- <div class="header__container"> -->
       <h1 class="header__main">{aboutContent.title}</h1>
@@ -60,7 +60,7 @@ try {
   }
 
   img.portrait__img {
-    margin-top: 2rem;
+    margin: 2rem auto;
     width: 10rem;
     border: 3px solid var(--brown_dark);
     border-radius: 50%;
@@ -88,5 +88,40 @@ try {
 
   img.panorama__img {
     margin: 5rem 0;
+  }
+
+  @media (max-width: 1100px) {
+    .magpie__img {
+      width: 12.5rem;
+    }
+    h1.header__main {
+      font-size: 2rem;
+    }
+    p.description__text {
+      font-size: 0.95rem;
+    }
+
+    img.portrait__img {
+      width: 7.5rem;
+    }
+
+    img.panorama__img {
+      margin: 2.5rem 0;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .content__container {
+      flex-direction: column;
+      align-items: center;
+    }
+    div.description__container {
+      margin: 2rem 0 0 0;
+      width: 75%;
+    }
+    h1.header__main {
+      text-align: center;
+    }
   }
 </style>
