@@ -129,14 +129,10 @@ try {
   const body = document.body;
   const hamburger = document.getElementById("hamburger");
   const navMobile = document.getElementById("nav__container-mobile");
-  function toggleMobileNav() {
+
+  hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("openmenu");
     navMobile.classList.toggle("visible");
     body.classList.toggle("stop_scrolling");
-    
-  }
-  hamburger.addEventListener("click", toggleMobileNav);
-  window.addEventListener("beforeunload", function () {
-    hamburger.removeEventListener("click", toggleMobileNav, true);
   });
 </script>
