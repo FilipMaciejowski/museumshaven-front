@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MainLogo from "../components/MainLogo.astro";
-import "../styles/fonts.css";
-import fetchApi from "../libs/strapi";
 
+import "../styles/fonts.css";
+
+import fetchApi from "../libs/strapi";
 let homeContent;
 try {
   homeContent = await fetchApi("home");
@@ -41,7 +42,7 @@ try {
 <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${homeContent.img.data.attributes.url}`} width={homeContent.img.data.attributes.width} height={homeContent.img.data.attributes.height}  alt=""/>
   </p> -->
 
-<style>
+<style is:global>
   .mainContent__wrapper {
     margin: 4rem 1rem;
     min-height: 60vh;
