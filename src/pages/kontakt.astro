@@ -10,7 +10,7 @@ let contactContent;
 try {
   contactContent = await fetchApi("contact");
 
-  contactContent.replace(/\n/g, "<br />");
+ 
 } catch (e) {
   console.log(e);
 }
@@ -23,7 +23,7 @@ try {
     <div class="contactForm__container">
       <div class="headline__container">
         <h1 class="header__main">Kontakt</h1>
-        <img class="contact__description" src="/Sparrow.svg" />
+        <img class="sparrow__img" src="/Sparrow.svg" />
       </div>
       <p class="headline__description">
         Ta kontakt via telefon/epost eller benytt kontaktskjema under.
@@ -63,7 +63,7 @@ try {
   }
 
   img.sparrow__img {
-    width: 2rem;
+    width: 5rem;
   }
 
   h1.header__main {
@@ -131,10 +131,15 @@ try {
       width: 75%;
     }
   }
-
-  @media (max-width: 550px) {
-    .contactForm__container {
-      
-    }
-  }
 </style>
+<script>
+  const body = document.body;
+  const hamburger = document.getElementById("hamburger");
+  const navMobile = document.getElementById("nav__container-mobile");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("openmenu");
+    navMobile.classList.toggle("visible");
+    body.classList.toggle("stop_scrolling");
+  });
+</script>

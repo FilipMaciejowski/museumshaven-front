@@ -6,7 +6,7 @@ import "../styles/variables.css";
 
 <Layout>
   <div class="content__container">
-    <img class="museum__img" src="../../public/museumBuilding.svg" />
+    <img class="museum__img" src="/museumBuilding.svg" />
     <div class="description__container">
       <h1 class="header__main">Forvaltergården</h1>
       <p class="headline__undertext">Tvedestrand museum</p>
@@ -162,3 +162,14 @@ import "../styles/variables.css";
     }
   }
 </style>
+<script>
+  const body = document.body;
+  const hamburger = document.getElementById("hamburger");
+  const navMobile = document.getElementById("nav__container-mobile");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("openmenu");
+    navMobile.classList.toggle("visible");
+    body.classList.toggle("stop_scrolling");
+  });
+</script>

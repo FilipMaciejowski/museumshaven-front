@@ -30,12 +30,12 @@ try {
         smakene som finnes i naturlig tilstand, eller som kan drives ut av de
         gode råvarene ved hjelp av ulike teknikker. Tusen takk for maten- og vel
         bekomme!
+        <img class="fish__img" src="/Fish.svg" />
       </p>
       <div class="img__wrapper">
         <img class="pig__img" src="/Pig.svg" />
       </div>
     </div>
-    <img class="fish__img" src="/Fish.svg" />
   </div>
   <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${kitchenContent.img.data.attributes.url}`} width={kitchenContent.img.data.attributes.width} height={kitchenContent.img.data.attributes.height}  alt=""/>
   </p> -->
@@ -67,6 +67,7 @@ try {
     font-family: "Lora";
     font-size: 1.25rem;
     font-weight: 400;
+    position: relative;
   }
 
   .img__wrapper {
@@ -82,8 +83,8 @@ try {
   .fish__img {
     position: absolute;
     width: 6rem;
-    top: 500px;
-    right: 200px;
+    top: 250px;
+    right: -50px;
   }
 
   @media (max-width: 1100px) {
@@ -113,3 +114,14 @@ try {
     }
   }
 </style>
+<script>
+  const body = document.body;
+  const hamburger = document.getElementById("hamburger");
+  const navMobile = document.getElementById("nav__container-mobile");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("openmenu");
+    navMobile.classList.toggle("visible");
+    body.classList.toggle("stop_scrolling");
+  });
+</script>

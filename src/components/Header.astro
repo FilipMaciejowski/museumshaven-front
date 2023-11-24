@@ -1,13 +1,15 @@
 ---
 import "../styles/fonts.css";
 import "../styles/variables.css";
-
+import HamburgerMenu from "./HamburgerMenu.astro";
+import NavMobile from "./NavMobile.astro";
 //using Astro Runtime API see more Astro docs
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
 <div class="Header__container">
+  <NavMobile />
   <a href="/" class="Header__logo"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
@@ -23,25 +25,26 @@ const currentPath = pathname.slice(1);
     ></a
   >
   <nav>
-    <ul class="nav__list">
+    <HamburgerMenu />
+    <ul id="nav__list-normal" class="nav__list">
       <li class={currentPath === "" ? "active" : "nav__item"}>
-        <a class="nav__link" href="/">home</a>
+        <a class="nav__link" href="/">Home</a>
       </li>
       <li class={currentPath === "meny" ? "active" : "nav__item"}>
-        <a class="nav__link" href="/meny">meny</a>
+        <a class="nav__link" href="/meny">Meny</a>
       </li>
       <li
         class={currentPath === "blogg" || currentPath.includes("/")
           ? "active"
           : "nav__item"}
       >
-        <a class="nav__link" href="/blogg">blogg</a>
+        <a class="nav__link" href="/blogg">Blogg</a>
       </li>
       <li class={currentPath === "omoss" ? "active_about" : "nav__item"}>
-        <a class="nav__link" href="/omoss">om oss</a>
+        <a class="nav__link" href="/omoss">Om oss</a>
       </li>
       <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
-        <a class="nav__link" href="/kontakt">kontaktsjema</a>
+        <a class="nav__link" href="/kontakt">Kontaktsjema</a>
       </li>
     </ul>
   </nav>
@@ -136,12 +139,15 @@ const currentPath = pathname.slice(1);
   }
 
   @media (max-width: 1100px) {
-    .Header__container{
+    .Header__container {
       padding: 0;
+      display: flex;
+      justify-content: space-between;
     }
     ul.nav__list {
       display: none;
     }
   }
- 
 </style>
+
+<script></script>

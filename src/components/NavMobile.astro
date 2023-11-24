@@ -1,0 +1,93 @@
+---
+import "../styles/fonts.css";
+import "../styles/variables.css";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<div id="nav__container-mobile" class="nav__container">
+  <nav class="nav__mobile">
+    <ul id="nav__list-mobile" class="nav__list-mobile">
+      <li class={currentPath === "" ? "active" : "nav__item"}>
+        <a class="nav__link" href="/">Home</a>
+      </li>
+      <li class={currentPath === "meny" ? "active" : "nav__item"}>
+        <a class="nav__link" href="/meny">Meny</a>
+      </li>
+      <li
+        class={currentPath === "blogg" || currentPath.includes("/")
+          ? "active"
+          : "nav__item"}
+      >
+        <a class="nav__link" href="/blogg">Blogg</a>
+      </li>
+      <li class={currentPath === "omoss" ? "active" : "nav__item"}>
+        <a class="nav__link" href="/omoss">Om oss</a>
+      </li>
+      <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
+        <a class="nav__link" href="/kontakt">Kontaktsjema</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+  div.nav__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--main);
+    margin: 0;
+    width: 100vw;
+    height: 100%;
+    padding: 0;
+   
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+  }
+  div.nav__container.visible {
+    
+    opacity: 1;
+    transition: opacity 0.35s ease-out;
+  }
+
+  nav.nav__mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  ul.nav__list-mobile {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li.nav__item {
+    font-weight: 400;
+    font-family: "Inter";
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100%;
+    padding: 0.65rem;
+    border: 2px solid transparent;
+  }
+
+  .active {
+    font-weight: 400;
+    font-family: "Inter";
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100%;
+    padding: 0.65rem;
+    border: 2px solid var(--light_brown);
+    border-radius: 25px;
+    background-color: var(--light_brown);
+  }
+
+  a.nav__link {
+    text-decoration: none;
+    color: var(--black_main);
+  }
+</style>

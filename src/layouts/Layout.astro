@@ -9,6 +9,7 @@ const { meny } = Astro.props;
 const { aboutUs } = Astro.props;
 let metaTitle = "";
 if (title) metaTitle = `${title} - `;
+import NavMobile from "../components/NavMobile.astro";
 ---
 
 <!doctype html>
@@ -33,7 +34,8 @@ if (title) metaTitle = `${title} - `;
     <meta property="twitter:card" content="s" />
   </head>
   <body>
-    <Header aboutUs={aboutUs}/>
+    <NavMobile />
+    <Header aboutUs={aboutUs} />
     <section class="Page__content">
       <slot />
     </section>
@@ -53,6 +55,9 @@ if (title) metaTitle = `${title} - `;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .stop_scrolling {
+        overflow: hidden;
       }
     </style>
   </body>

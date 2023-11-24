@@ -125,12 +125,41 @@ try {
     .content__container {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
     div.blog__container {
       margin: 2rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      width: 100%;
     }
+
     h1.header__main {
       text-align: center;
     }
+    
+
+    ul.article__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    li.list__element {
+      width: 85%;
+    }
   }
 </style>
+<script>
+  const body = document.body;
+  const hamburger = document.getElementById("hamburger");
+  const navMobile = document.getElementById("nav__container-mobile");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("openmenu");
+    navMobile.classList.toggle("visible");
+    body.classList.toggle("stop_scrolling");
+  });
+</script>

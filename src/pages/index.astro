@@ -135,7 +135,7 @@ try {
       width: 100%;
     }
 
-    p.mainContent__description{
+    p.mainContent__description {
       text-align: center;
     }
   }
@@ -145,24 +145,35 @@ try {
       flex-direction: column;
       min-height: 60vh;
     }
-    .mainContent__navItem{
+    .mainContent__navItem {
       margin: 2rem auto;
     }
   }
 
-  @media(max-width: 450px){
-    .mainContent__wrapper{
+  @media (max-width: 450px) {
+    .mainContent__wrapper {
       padding: 1rem;
     }
-    p.mainContent__title{
+    p.mainContent__title {
       font-size: 2.5rem;
     }
-    p.mainContent__undertext{
+    p.mainContent__undertext {
       font-size: 1rem;
     }
-    p.mainContent__description{
+    p.mainContent__description {
       font-size: 0.85rem;
       text-align: center;
     }
   }
 </style>
+<script>
+  const body = document.body;
+  const hamburger = document.getElementById("hamburger");
+  const navMobile = document.getElementById("nav__container-mobile");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("openmenu");
+    navMobile.classList.toggle("visible");
+    body.classList.toggle("stop_scrolling");
+  });
+</script>
