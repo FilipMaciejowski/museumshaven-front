@@ -6,6 +6,7 @@ import NavMobile from "./NavMobile.astro";
 //using Astro Runtime API see more Astro docs
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+console.log(currentPath)
 ---
 
 <div class="Header__container">
