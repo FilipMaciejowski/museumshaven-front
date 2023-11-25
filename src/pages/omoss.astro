@@ -20,7 +20,7 @@ try {
 
 <Layout aboutUs={true} title="hagen">
   <div class="content__container">
-    <img class="magpie__img" src="/AboutMagpie.svg" />
+    <img class="portrait__img" src="/Linn.svg" />
     <div class="description__container">
       <!-- <div class="header__container"> -->
       <h1 class="header__main">{aboutContent.title}</h1>
@@ -31,7 +31,7 @@ try {
           aboutContent.description
         }<!-- {console.log(ReactHtmlParser(aboutContent))} -->
       </p>
-      {
+      <!-- {
         aboutContent.imgs.data.map((img) => (
           <img
             class="portrait__img"
@@ -39,7 +39,7 @@ try {
             alt=""
           />
         ))
-      }
+      } -->
       <img class="panorama__img" src="/Panorama.svg" />
     </div>
   </div>
@@ -60,10 +60,8 @@ try {
   }
 
   img.portrait__img {
-    margin: 2rem auto;
-    width: 10rem;
-    border: 3px solid var(--brown_dark);
-    border-radius: 50%;
+    width: 15rem;
+    
   }
   div.description__container {
     width: 50%;
@@ -89,6 +87,9 @@ try {
   img.panorama__img {
     margin: 5rem 0;
   }
+  img.magpie__img {
+      width: 12.5rem;
+    }
 
   @media (max-width: 1100px) {
     .magpie__img {

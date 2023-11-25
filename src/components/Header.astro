@@ -41,7 +41,7 @@ console.log(currentPath);
         <a class="nav__link" href="/omoss">Om oss</a>
       </li>
       <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
-        <a class="nav__link" href="/kontakt">Kontaktsjema</a>
+        <a class="nav__link" href="/kontakt">Kontaktskjema</a>
       </li>
     </ul>
   </nav>
@@ -127,9 +127,9 @@ console.log(currentPath);
 
   .active_about::before {
     position: absolute;
-    content: url("/Pot.svg");
-    top: 35px;
-    left: 45px;
+    content: url("/AboutFlower.svg");
+    top: 15px;
+    left: 15px;
   }
 
   a.nav__link {
@@ -145,6 +145,10 @@ console.log(currentPath);
     }
     ul.nav__list {
       display: none;
+    }
+
+    .Header__logo svg{
+      padding: 0;
     }
   }
 </style>
