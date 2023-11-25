@@ -18,21 +18,29 @@ try {
     <MainLogo />
     <div class="mainContent">
       <p class="mainContent__title">{homeContent.title}</p>
-      <p class="mainContent__undertext">Mat - Drikke - Hygge</p>
+      <p class="mainContent__undertext">Mat og Drikke - Hygge - Kultur</p>
       <p class="mainContent__description">{homeContent.description}</p>
       <nav class="mainContent__navigation">
         <ul class="mainContent__navList">
           <li class="mainContent__navItem">
-            <img src="/Kitchen.svg" />
-            <a class="mainContent__navLink" href="/kjokennet">Kjøkkenet</a>
+            <a class="mainContent__navLink" href="/kjokennet"
+              ><img src="/Kitchen.svg" />Kjøkkenet</a
+            >
           </li>
           <li class="mainContent__navItem">
-            <img src="/Garden.svg" />
-            <a class="mainContent__navLink" href="/hagen">Hagen</a>
+            <a class="mainContent__navLink" href="/hagen"
+              ><img src="/Garden.svg" />Hagen</a
+            >
           </li>
           <li class="mainContent__navItem">
-            <img src="/Museum.svg" />
-            <a class="mainContent__navLink" href="/museet">Museet</a>
+            <a class="mainContent__navLink" href="/museet"
+              ><img src="/Museum.svg" />Museet</a
+            >
+          </li>
+          <li class="mainContent__navItem">
+            <a class="mainContent__navLink" href="/kultur"
+              ><img src="/Guitar.svg" />Kultur</a
+            >
           </li>
         </ul>
       </nav>
@@ -42,7 +50,7 @@ try {
 <!-- <p><Image src={`${import.meta.env.STRAPI_URL}${homeContent.img.data.attributes.url}`} width={homeContent.img.data.attributes.width} height={homeContent.img.data.attributes.height}  alt=""/>
   </p> -->
 
-<style is:global>
+<style>
   .mainContent__wrapper {
     margin: 4rem 1rem;
     min-height: 60vh;
@@ -76,38 +84,28 @@ try {
   }
 
   nav.mainContent__navigation {
-    width: 40vw;
+    width: 50vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: wrap;
   }
   .mainContent__navList {
     height: auto;
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     list-style-type: none;
+
     padding: 0;
     margin: 2rem 0;
   }
 
   .mainContent__navItem {
-    width: 5rem;
-    height: 6rem;
-    background-color: var(--light_brown);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    border-radius: 50%;
-    transition: all 0.25s ease-in-out;
-  }
-
-  .mainContent__navItem:hover {
-    background-color: var(--brown);
-    transition: all 0.15s ease-in-out;
   }
 
   .mainContent__navLink {
@@ -115,15 +113,28 @@ try {
     color: var(--black_main);
     font-family: "Lora";
     font-weight: 400;
-    padding: 0.5rem;
+    padding: 1.25rem;
+    width: 5rem;
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light_brown);
+    transition: all 0.25s ease-in-out;
+  }
+  .mainContent__navLink:hover {
+    background-color: var(--brown);
+    transition: all 0.15s ease-in-out;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1385px) {
     .mainContent__wrapper {
       flex-direction: column;
       width: auto;
       padding: 2rem;
-      margin: auto 1rem;
+      margin: 4rem 1rem;
     }
     .mainContent {
       display: flex;
