@@ -6,7 +6,7 @@ import NavMobile from "./NavMobile.astro";
 //using Astro Runtime API see more Astro docs
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
-console.log(currentPath);
+
 ---
 
 <div class="Header__container">
@@ -103,7 +103,6 @@ console.log(currentPath);
     position: relative;
   }
 
-
   .active_about {
     margin-right: 1rem;
     font-weight: 400;
@@ -147,7 +146,7 @@ console.log(currentPath);
       display: none;
     }
 
-    .Header__logo svg{
+    .Header__logo svg {
       padding: 0;
     }
   }

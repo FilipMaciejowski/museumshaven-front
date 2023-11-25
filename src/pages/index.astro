@@ -24,22 +24,24 @@ try {
         <ul class="mainContent__navList">
           <li class="mainContent__navItem">
             <a class="mainContent__navLink" href="/kjokennet"
-              ><img src="/Kitchen.svg" />Kjøkkenet</a
+              ><img src="/Kitchen.svg" /><p class="navLink__text">
+                Kjøkkenet
+              </p></a
             >
           </li>
           <li class="mainContent__navItem">
             <a class="mainContent__navLink" href="/hagen"
-              ><img src="/Garden.svg" />Hagen</a
+              ><img src="/Garden.svg" /><p class="navLink__text">Hagen</p></a
             >
           </li>
           <li class="mainContent__navItem">
             <a class="mainContent__navLink" href="/kultur"
-              ><img src="/Guitar.svg" />Kultur</a
+              ><img src="/Guitar.svg" /><p class="navLink__text">Kultur</p></a
             >
           </li>
           <li class="mainContent__navItem">
             <a class="mainContent__navLink" href="/museet"
-              ><img src="/Museum.svg" />Museet</a
+              ><img src="/Museum.svg" /><p class="navLink__text">Museet</p></a
             >
           </li>
         </ul>
@@ -64,6 +66,8 @@ try {
     background-color: #f9f5f0;
     border-radius: 15px;
   }
+
+  
 
   p.mainContent__title {
     font-family: "Lora";
@@ -128,7 +132,13 @@ try {
     background-color: var(--brown);
     transition: all 0.15s ease-in-out;
   }
+  p.navLink__text {
+    margin: 0.5rem auto;
+  }
 
+  img {
+    margin-top: 0.5rem;
+  }
   @media (max-width: 1385px) {
     .mainContent__wrapper {
       flex-direction: column;
