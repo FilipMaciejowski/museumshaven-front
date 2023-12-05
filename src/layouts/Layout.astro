@@ -7,7 +7,7 @@ import "../styles/fonts.css";
 const { title } = Astro.props;
 const { page } = Astro.props;
 
-const { aboutUs } = Astro.props;
+
 let metaTitle = "";
 if (title) metaTitle = `${title} - `;
 import NavMobile from "../components/NavMobile.astro";
@@ -36,7 +36,7 @@ import NavMobile from "../components/NavMobile.astro";
   </head>
   <body>
     <NavMobile />
-    <Header aboutUs={aboutUs} />
+    <Header  />
     <section class="Page__content">
       <slot />
     </section>
