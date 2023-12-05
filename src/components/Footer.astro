@@ -3,16 +3,24 @@ import "../styles/fonts.css";
 import "../styles/variables.css";
 const date = new Date();
 const year = date.getFullYear();
-const { meny } = Astro.props;
+const { page } = Astro.props;
 ---
 
-<footer>
+<footer class="footer">
   {
-    meny && (
+    page === "meny" ? (
       <div class="img__container">
         <img class="drinks__img" src="./Drinks.svg" />
       </div>
-    )
+    ) : page === "home" ? (
+      <div class="img__container">
+        <img class="chamomile__img" src="./chamomile.svg" />
+      </div>
+    ) : page === "about" ? (
+      <div class="img__container">
+        <img class="Starflower__img" src="./Starflower2.svg" />
+      </div>
+    ) : null
   }
   <div class="footer__main">
     <div class="development__container">
@@ -34,9 +42,14 @@ const { meny } = Astro.props;
   </div>
 </footer>
 <style>
+  footer.footer {
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+  }
   .footer__main {
     height: 7.5vh;
-    background-color: #282623;
+    background-color: var(--green_main);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,6 +66,20 @@ const { meny } = Astro.props;
   img.drinks__img {
     position: relative;
     top: 1px;
+    z-index: -1;
+  }
+
+  img.chamomile__img {
+    position: absolute;
+    top: -175px;
+    rigth: 450px;
+    z-index: -1;
+  }
+
+  img.Starflower__img {
+    position: absolute;
+    top: -150px;
+    rigth: 450px;
     z-index: -1;
   }
   .development__container {
@@ -94,7 +121,23 @@ const { meny } = Astro.props;
     font-size: 0.85rem;
   }
 
-  @media (max-width: 625px) {
+  @media (min-width: 1385px) {
+    img.chamomile__img {
+      position: absolute;
+      top: -175px;
+      right: 250px;
+      z-index: -1;
+    }
+
+    img.Starflower__img {
+      position: absolute;
+      top: -150px;
+      right: 250px;
+      z-index: -1;
+    }
+  }
+
+  @media (max-width: 825px) {
     .footer__main {
       flex-direction: column;
       justify-content: center;
@@ -104,7 +147,23 @@ const { meny } = Astro.props;
     }
 
     img.drinks__img {
-      width: 15rem;
+      width: 17.5rem;
+    }
+
+    img.chamomile__img {
+      position: absolute;
+      top: -125px;
+      right: 50px;
+      z-index: -1;
+      width: 5rem;
+    }
+
+    img.Starflower__img {
+      position: absolute;
+      top: -115px;
+      right: 50px;
+      z-index: -1;
+      width: 5rem;
     }
     .logoDev__mini {
       margin: 0 0 0 1rem;

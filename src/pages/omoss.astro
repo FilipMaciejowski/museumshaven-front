@@ -2,23 +2,19 @@
 import { Image } from "astro:assets";
 import ReactHtmlParser from "react-html-parser";
 import Layout from "../layouts/Layout.astro";
-
+import Wrapper from "../components/Wrapper.astro";
 import fetchApi from "../libs/strapi";
-const makeHTML = (text: string, fragment: string) => {
-  if (text.includes(fragment)) {
-  }
-};
+
 let aboutContent;
 try {
   aboutContent = await fetchApi("about");
-
-  
+  console.log(aboutContent);
 } catch (e) {
   console.log(e);
 }
 ---
 
-<Layout aboutUs={true} title="hagen">
+<Layout page="about" title="hagen">
   <div class="content__container">
     <img class="portrait__img" src="/Linn.svg" />
     <div class="description__container">
@@ -26,21 +22,33 @@ try {
       <h1 class="header__main">{aboutContent.title}</h1>
 
       <!-- </div> -->
-      <p class="description__text">
+
+      <p
+        style="white-space: pre-line"
+        id="description"
+        class="description__text"
+      >
         {
-          aboutContent.description
+          aboutContent ? aboutContent.description : null
         }<!-- {console.log(ReactHtmlParser(aboutContent))} -->
       </p>
-      <!-- {
-        aboutContent.imgs.data.map((img) => (
-          <img
-            class="portrait__img"
-            src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`}
-            alt=""
-          />
-        ))
-      } -->
       <img class="panorama__img" src="/Panorama.svg" />
+      <div class="suppliers__container">
+        <h1 class="suppliers__headline">Våre samarbeidspartnere</h1>
+        <div class="logo__wrapper">
+          {
+            aboutContent.imgs.data
+              ? aboutContent.imgs.data.map((img) => (
+                  <img
+                    class="logo__img"
+                    src={`${import.meta.env.STRAPI_URL}${img.attributes.url}`}
+                    alt=""
+                  />
+                ))
+              : null
+          }
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
@@ -61,13 +69,27 @@ try {
 
   img.portrait__img {
     width: 15rem;
-    
   }
   div.description__container {
     width: 50%;
     margin-left: 2rem;
     display: flex;
     flex-direction: column;
+  }
+
+  div.suppliers__container {
+    width: 100%;
+    height: auto;
+    background-color: #f9f5f0;
+    border-radius: 10px;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  h1.suppliers__headline {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Lora";
+    font-weight: 300;
   }
 
   h1.header__main {
@@ -88,8 +110,21 @@ try {
     margin: 5rem 0;
   }
   img.magpie__img {
-      width: 12.5rem;
-    }
+    width: 12.5rem;
+  }
+
+  div.logo__wrapper {
+    width: 100%;
+    min-height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img.logo__img {
+    width: 5rem;
+    margin: 0 0.5rem;
+  }
 
   @media (max-width: 1100px) {
     .magpie__img {
@@ -103,16 +138,20 @@ try {
     }
 
     img.portrait__img {
-      width: 7.5rem;
+      width: 12.5rem;
     }
 
     img.panorama__img {
       margin: 2.5rem 0;
       width: 100%;
     }
+
+    h1.suppliers__headline {
+      font-size: 1.15rem;
+    }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 825px) {
     .content__container {
       flex-direction: column;
       align-items: center;
@@ -123,6 +162,12 @@ try {
     }
     h1.header__main {
       text-align: center;
+    }
+  }
+
+  @media (max-width: 450px) {
+    h1.suppliers__headline {
+      font-size: 1rem;
     }
   }
 </style>
@@ -136,4 +181,7 @@ try {
     navMobile.classList.toggle("visible");
     body.classList.toggle("stop_scrolling");
   });
+
+  // const description = document.getElementById("description");
+  // console.log("DESC", description);
 </script>

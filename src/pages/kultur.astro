@@ -5,9 +5,9 @@ import Layout from "../layouts/Layout.astro";
 
 import fetchApi from "../libs/strapi";
 
-let gardenContent;
+let cultureContent;
 try {
-  gardenContent = await fetchApi("garden");
+  cultureContent = await fetchApi("culture");
 } catch (e) {
   console.log(e);
 }
@@ -17,32 +17,12 @@ try {
   <div class="content__container">
     <img class="garden__img" src="/Starflower.svg" />
     <div class="description__container">
-      <h1 class="header__main">Kultur</h1>
-      <p class="description__text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Nec feugiat nisl
-        pretium fusce. Nisl vel pretium lectus quam id leo in vitae turpis.
-        Magna etiam tempor orci eu lobortis elementum nibh tellus. Etiam non
-        quam lacus suspendisse faucibus interdum. Sit amet risus nullam eget
-        felis eget nunc. A diam maecenas sed enim ut sem viverra aliquet eget.
-        Consequat mauris nunc congue nisi. Purus viverra accumsan in nisl. At
-        elementum eu facilisis sed odio morbi. Diam vulputate ut pharetra sit
-        amet aliquam id diam. Et egestas quis ipsum suspendisse ultrices. Nunc
-        pulvinar sapien et ligula ullamcorper malesuada proin libero nunc.
-        Pellentesque pulvinar pellentesque habitant morbi tristique senectus. A
-        iaculis at erat pellentesque adipiscing commodo elit at imperdiet.
-        Consectetur a erat nam at lectus urna duis convallis. Sagittis orci a
-        scelerisque purus semper eget. Pellentesque massa placerat duis
-        ultricies lacus. Non curabitur gravida arcu ac tortor dignissim
-        convallis aenean. Rhoncus dolor purus non enim praesent elementum
-        facilisis. Eget nunc lobortis mattis aliquam faucibus purus in massa.
-        Aliquet sagittis id consectetur purus ut faucibus. Elementum integer
-        enim neque volutpat. Quam viverra orci sagittis eu volutpat. Vestibulum
-        rhoncus est pellentesque elit. Imperdiet dui accumsan sit amet nulla
-        facilisi morbi. Lacinia at quis risus sed vulputate odio ut.
+      <h1 class="header__main">{cultureContent.title}</h1>
+      <p style="white-space: pre-line" class="description__text">
+        {cultureContent.description}
       </p>
       <div class="img__wrapper">
-        <img class="culture_decor" src="/Culture.svg" />
+        <img class="culture_decor" src="/CultureNew.svg" />
       </div>
     </div>
   </div>
@@ -93,7 +73,7 @@ try {
     display: flex;
     justify-content: center;
   }
-  .garden_decor {
+  .culture_decor {
     position: relative;
   }
 
@@ -107,12 +87,9 @@ try {
     p.description__text {
       font-size: 0.95rem;
     }
-    .culture_decor {
-      width: 100%;
-    }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 825px) {
     .content__container {
       flex-direction: column;
       align-items: center;
@@ -124,8 +101,14 @@ try {
     h1.header__main {
       text-align: center;
     }
-    img.garden_decor {
-      width: 7.5rem;
+    img.culture_decor {
+      width: 15rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    img.culture_decor {
+      width: 10rem;
     }
   }
 </style>

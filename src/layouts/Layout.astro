@@ -5,7 +5,8 @@ import Footer from "../components/Footer.astro";
 import "../styles/variables.css";
 import "../styles/fonts.css";
 const { title } = Astro.props;
-const { meny } = Astro.props;
+const { page } = Astro.props;
+
 const { aboutUs } = Astro.props;
 let metaTitle = "";
 if (title) metaTitle = `${title} - `;
@@ -39,7 +40,7 @@ import NavMobile from "../components/NavMobile.astro";
     <section class="Page__content">
       <slot />
     </section>
-    <Footer meny={meny} />
+    <Footer page={page} />
 
     <style>
       html {

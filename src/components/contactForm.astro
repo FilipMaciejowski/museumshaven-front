@@ -4,15 +4,15 @@ const baseUrl = Astro.url.origin;
 
 <form class="form__container" id="contactForm" autocomplete="off">
   <div class="nameInput__wrapper">
-    <label class="nameInput__label" for="name">Name:</label>
+    <label class="nameInput__label" for="name">Navn:</label>
     <input type="text" id="name" name="name" minlength="2" required />
   </div>
   <div class="emailInput__wrapper">
-    <label class="email__label" for="email">Email:</label>
+    <label class="email__label" for="email">Epost:</label>
     <input type="email" id="email" name="email" required />
   </div>
   <div class="textarea__wrapper">
-    <label class="textarea__label" for="content">Content:</label>
+    <label class="textarea__label" for="content">Melding:</label>
     <textarea
       id="content"
       name="content"
@@ -28,7 +28,6 @@ const baseUrl = Astro.url.origin;
 </form>
 
 <script define:vars={{ baseUrl }}>
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 

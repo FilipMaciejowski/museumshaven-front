@@ -6,7 +6,6 @@ import NavMobile from "./NavMobile.astro";
 //using Astro Runtime API see more Astro docs
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
-
 ---
 
 <div class="Header__container">
@@ -37,7 +36,7 @@ const currentPath = pathname.slice(1);
       <li class={currentPath === "blogg" ? "active" : "nav__item"}>
         <a class="nav__link" href="/blogg">Blogg</a>
       </li>
-      <li class={currentPath === "omoss" ? "active_about" : "nav__item"}>
+      <li class={currentPath === "omoss" ? "active" : "nav__item"}>
         <a class="nav__link" href="/omoss">Om oss</a>
       </li>
       <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
@@ -103,32 +102,11 @@ const currentPath = pathname.slice(1);
     position: relative;
   }
 
-  .active_about {
-    margin-right: 1rem;
-    font-weight: 400;
-    font-family: "Inter";
-    text-align: center;
-    vertical-align: middle;
-    line-height: 100%;
-    padding: 0.65rem;
-    border: 2px solid var(--light_brown);
-    border-radius: 25px;
-    background-color: var(--light_brown);
-    position: relative;
-  }
-
   .active::before {
     position: absolute;
     content: url("/Magpie.svg");
     top: -25px;
     left: -5px;
-  }
-
-  .active_about::before {
-    position: absolute;
-    content: url("/AboutFlower.svg");
-    top: 15px;
-    left: 15px;
   }
 
   a.nav__link {

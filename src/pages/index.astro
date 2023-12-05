@@ -13,13 +13,15 @@ try {
 }
 ---
 
-<Layout>
+<Layout page="home">
   <div class="mainContent__wrapper">
     <MainLogo />
     <div class="mainContent">
       <p class="mainContent__title">{homeContent.title}</p>
-      <p class="mainContent__undertext">Mat og Drikke - Hygge - Kultur</p>
-      <p class="mainContent__description">{homeContent.description}</p>
+      <p class="mainContent__undertext">{homeContent.subtitle}</p>
+      <p style="white-space: pre-line" class="mainContent__description">
+        {homeContent.description}
+      </p>
       <nav class="mainContent__navigation">
         <ul class="mainContent__navList">
           <li class="mainContent__navItem">
@@ -54,7 +56,7 @@ try {
 
 <style>
   .mainContent__wrapper {
-    margin: 4rem 1rem;
+    margin: 2rem 1rem;
     min-height: 60vh;
     width: 78.5vw;
     display: flex;
@@ -66,8 +68,6 @@ try {
     background-color: #f9f5f0;
     border-radius: 15px;
   }
-
-  
 
   p.mainContent__title {
     font-family: "Lora";

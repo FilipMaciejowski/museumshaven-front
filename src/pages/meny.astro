@@ -11,32 +11,41 @@ try {
 }
 ---
 
-<Layout meny={true} title="hagen">
-  <div class="content__container">
-    <img class="menu__img" src="/Menu.svg" />
-    <div class="description__container">
-      <h1 class="header__main">{menuContent.title}</h1>
-      <p class="description__text">{menuContent.description}</p>
-      <div class="pdf__wrapper">
-        <a
-          class="pdf__link_el"
-          href={`${import.meta.env.STRAPI_URL}${
-            menuContent.file.data.attributes.url
-          }`}
-          target="_blank"
-          rel="noopener noreferrer">Meny (.pdf-fil)</a
-        >
-        <img class="hen__img" src="/Hen.svg" />
+<Layout page="meny" title="hagen">
+  <div>
+    <div class="content__container">
+      <img class="menu__img" src="/Knife.svg" />
+      <div class="description__container">
+        <h1 class="header__main">{menuContent.title}</h1>
+        <p style="white-space: pre-line" class="description__text">
+          {menuContent.description}
+        </p>
+        <div class="pdf__wrapper">
+          <a
+            class="pdf__link_el"
+            href={`${import.meta.env.STRAPI_URL}${
+              menuContent.file.data.attributes.url
+            }`}
+            target="_blank"
+            rel="noopener noreferrer">Meny (.pdf-fil)</a
+          >
+        </div>
       </div>
     </div>
+
+    <div class="Plate__container">
+      <img class="Plate__img" src="/Plate.svg" />
+      <img class="Pig__img" src="./Pig.svg" />
+    </div>
   </div>
+
   <!-- jeśli ma być ładny link do pdfa to najlepiej wrzucić go do public w tym projekcie -->
 </Layout>
 
 <style>
   .content__container {
     margin: 4rem 1rem;
-    min-height: 60vh;
+
     display: flex;
     justify-content: center;
     align-items: start;
@@ -59,6 +68,14 @@ try {
     font-size: 1.25rem;
     font-weight: 400;
   }
+
+  div.Plate__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-25%);
+  }
   div.pdf__wrapper {
     display: flex;
     align-items: center;
@@ -75,11 +92,39 @@ try {
   img.hen__img {
     margin-left: 2rem;
   }
+
   a.pdf__link_el:hover {
     text-decoration: underline;
     text-decoration-color: var(--brown);
   }
 
+  img.Plate__img {
+    width: 22.5rem;
+  }
+
+  img.Pig__img {
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    width: 10rem;
+  }
+
+  @media (max-width: 1250px) {
+    img.Pig__img {
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      width: 10rem;
+    }
+  }
+  @media (max-width: 1125px) {
+    img.Pig__img {
+      position: absolute;
+      top: 200px;
+      left: 185px;
+      width: 10rem;
+    }
+  }
   @media (max-width: 1100px) {
     .menu__img {
       width: 12.5rem;
@@ -90,8 +135,28 @@ try {
     p.description__text {
       font-size: 0.95rem;
     }
+    img.Plate__img {
+      width: 18.5rem;
+    }
   }
-  @media (max-width: 550px) {
+  @media (max-width: 1050px) {
+    img.Pig__img {
+      position: absolute;
+      top: 200px;
+      left: 150px;
+      width: 8.5rem;
+    }
+  }
+  @media (max-width: 900px) {
+    img.Pig__img {
+      position: absolute;
+      top: 200px;
+      left: 100px;
+      width: 7.5rem;
+    }
+  }
+
+  @media (max-width: 825px) {
     .content__container {
       flex-direction: column;
       align-items: center;
@@ -111,6 +176,31 @@ try {
     }
     img.hen__img {
       width: 2rem;
+    }
+
+    div.Plate__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(0);
+      margin: 2rem auto;
+    }
+    img.Pig__img {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 7.5rem;
+    }
+  }
+
+  @media (max-width: 750px) {
+    img.Pig__img {
+      display: none;
+    }
+  }
+  @media (max-width: 450px) {
+    img.Plate__img {
+      width: 15rem;
     }
   }
 </style>
