@@ -10,8 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.0.7",
     "astro": "^3.0.3",
     "mailgun-js": "^0.22.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-html-parser": "^2.0.2",
     "sanitize-html": "^2.11.0",
     "sass": "^1.68.0"

@@ -6,8 +6,8 @@ import NavMobile from "./NavMobile.astro";
 //using Astro Runtime API see more Astro docs
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+console.log(currentPath)
 ---
-
 <div class="Header__container">
   <NavMobile />
   <a href="/" class="Header__logo"
@@ -30,16 +30,16 @@ const currentPath = pathname.slice(1);
       <li class={currentPath === "" ? "active" : "nav__item"}>
         <a class="nav__link" href="/">Home</a>
       </li>
-      <li class={currentPath === "meny" ? "active" : "nav__item"}>
+      <li class={currentPath === "meny/" ? "active" : "nav__item"}>
         <a class="nav__link" href="/meny">Meny</a>
       </li>
-      <li class={currentPath === "blogg" ? "active" : "nav__item"}>
+      <li class={currentPath === "blogg/" ? "active" : "nav__item"}>
         <a class="nav__link" href="/blogg">Blogg</a>
       </li>
-      <li class={currentPath === "omoss" ? "active" : "nav__item"}>
+      <li class={currentPath === "omoss/" ? "active" : "nav__item"}>
         <a class="nav__link" href="/omoss">Om oss</a>
       </li>
-      <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
+      <li class={currentPath === "kontakt/" ? "active" : "nav__item"}>
         <a class="nav__link" href="/kontakt">Kontaktskjema</a>
       </li>
     </ul>
@@ -130,4 +130,7 @@ const currentPath = pathname.slice(1);
   }
 </style>
 
-<script></script>
+<script>
+
+
+</script>
