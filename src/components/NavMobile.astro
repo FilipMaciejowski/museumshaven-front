@@ -3,6 +3,26 @@ import "../styles/fonts.css";
 import "../styles/variables.css";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
+
+function countOccurrences(str, char) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function checkOccurrence(str, char) {
+  if (countOccurrences(str, char) === 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 ---
 
 <div id="nav__container-mobile" class="nav__container">
@@ -11,20 +31,34 @@ const currentPath = pathname.slice(1);
       <li class={currentPath === "" ? "active" : "nav__item"}>
         <a class="nav__link" href="/">Home</a>
       </li>
-      <li class={currentPath === "meny" ? "active" : "nav__item"}>
+      <li
+        class={currentPath === "meny/" || currentPath === "meny"
+          ? "active"
+          : "nav__item"}
+      >
         <a class="nav__link" href="/meny">Meny</a>
       </li>
       <li
-        class={currentPath === "blogg" || currentPath.includes("/")
+        class={currentPath === "blogg/" ||
+        currentPath === "blogg" ||
+        checkOccurrence(currentPath, "/")
           ? "active"
           : "nav__item"}
       >
         <a class="nav__link" href="/blogg">Blogg</a>
       </li>
-      <li class={currentPath === "omoss" ? "active" : "nav__item"}>
+      <li
+        class={currentPath === "omoss/" || currentPath === "omoss"
+          ? "active"
+          : "nav__item"}
+      >
         <a class="nav__link" href="/omoss">Om oss</a>
       </li>
-      <li class={currentPath === "kontakt" ? "active" : "nav__item"}>
+      <li
+        class={currentPath === "kontakt/" || currentPath === "kontakt/"
+          ? "active"
+          : "nav__item"}
+      >
         <a class="nav__link" href="/kontakt">Kontaktsjema</a>
       </li>
     </ul>

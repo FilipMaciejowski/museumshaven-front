@@ -7,6 +7,25 @@ import NavMobile from "./NavMobile.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 console.log(currentPath);
+function countOccurrences(str, char) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+function checkOccurrence(str, char) {
+  if (countOccurrences(str, char) === 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 ---
 
 <div class="Header__container">
@@ -38,13 +57,13 @@ console.log(currentPath);
       >
         <a class="nav__link" href="/meny">Meny</a>
       </li>
-      <li class={currentPath === "blogg/" ? "active" : "nav__item"}>
+      <li class={currentPath === "blogg/" || currentPath === "blogg" || checkOccurrence(currentPath, "/") ? "active" : "nav__item"}>
         <a class="nav__link" href="/blogg">Blogg</a>
       </li>
-      <li class={currentPath === "omoss/" ? "active" : "nav__item"}>
+      <li class={currentPath === "omoss/" || currentPath === "omoss"? "active" : "nav__item"}>
         <a class="nav__link" href="/omoss">Om oss</a>
       </li>
-      <li class={currentPath === "kontakt/" ? "active" : "nav__item"}>
+      <li class={currentPath === "kontakt/" || currentPath === "kontakt"? "active" : "nav__item"}>
         <a class="nav__link" href="/kontakt">Kontaktskjema</a>
       </li>
     </ul>
