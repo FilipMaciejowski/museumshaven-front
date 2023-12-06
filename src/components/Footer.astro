@@ -13,15 +13,15 @@ const { page } = Astro.props;
   {
     currentPath === "meny/" || currentPath === "meny" ? (
       <div class="img__container">
-        <img class="Drinks__img" src="./Drinks.svg" />
+        <img class="Drinks__img" src="/Drinks.svg" />
       </div>
     ) : currentPath === "" ? (
       <div class="img__container">
-        <img class="chamomile__img" src="./Chamomile.svg" />
+        <img class="chamomile__img" src="/Chamomile.svg" />
       </div>
     ) : currentPath === "omoss/" ? (
       <div class="img__container">
-        <img class="Starflower__img" src="./Starflower2.svg" />
+        <img class="Starflower__img" src="/Starflower2.svg" />
       </div>
     ) : null
   }
