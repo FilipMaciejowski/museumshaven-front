@@ -9,9 +9,9 @@ console.log(currentPath);
 const { page } = Astro.props;
 ---
 
-<footer class="footer">
+<footer id="main_footer" class="footer">
   {
-    currentPath === "meny/" ? (
+    currentPath === "meny/" || currentPath === "meny" ? (
       <div class="img__container">
         <img class="Drinks__img" src="./Drinks.svg" />
       </div>
@@ -178,3 +178,7 @@ const { page } = Astro.props;
     }
   }
 </style>
+<script>
+  const footer = document.getElementById("main_footer");
+  console.log(footer);
+</script>
