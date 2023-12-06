@@ -3,26 +3,30 @@ import "../styles/fonts.css";
 import "../styles/variables.css";
 const date = new Date();
 const year = date.getFullYear();
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+console.log(currentPath);
 const { page } = Astro.props;
 ---
 
 <footer class="footer">
   {
-    page === "meny" ? (
+    currentPath === "meny/" ? (
       <div class="img__container">
-        <img class="drinks__img" src="./Drinks.svg" />
+        <img class="Drinks__img" src="./Drinks.svg" />
       </div>
-    ) : page === "home" ? (
+    ) : currentPath === "" ? (
       <div class="img__container">
-        <img class="chamomile__img" src="./chamomile.svg" />
+        <img class="chamomile__img" src="./Chamomile.svg" />
       </div>
-    ) : page === "about" ? (
+    ) : currentPath === "about/" ? (
       <div class="img__container">
         <img class="Starflower__img" src="./Starflower2.svg" />
       </div>
     ) : null
   }
   <div class="footer__main">
+    {console.log(currentPath)}
     <div class="development__container">
       <p class="development__paragraph">Design og utvikling:</p>
       <img class="logoDev__mini" src="/DIS.svg" />
@@ -63,7 +67,7 @@ const { page } = Astro.props;
   img {
     margin: auto 1rem;
   }
-  img.drinks__img {
+  img.Drinks__img {
     position: relative;
     top: 1px;
     z-index: -1;
@@ -146,7 +150,7 @@ const { page } = Astro.props;
       padding: 1rem;
     }
 
-    img.drinks__img {
+    img.Drinks__img {
       width: 17.5rem;
     }
 
