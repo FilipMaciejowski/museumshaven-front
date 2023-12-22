@@ -19,7 +19,7 @@ const { page } = Astro.props;
       <div class="img__container">
         <img class="chamomile__img" src="/Chamomile.svg" />
       </div>
-    ) : currentPath === "omoss/" ? (
+    ) : currentPath === "omoss/" || currentPath === "omoss" ? (
       <div class="img__container">
         <img class="Starflower__img" src="/Starflower2.svg" />
       </div>
@@ -83,7 +83,7 @@ const { page } = Astro.props;
   img.Starflower__img {
     position: absolute;
     top: -150px;
-    rigth: 450px;
+    rigth: 250px;
     z-index: -1;
   }
   .development__container {
@@ -125,7 +125,7 @@ const { page } = Astro.props;
     font-size: 0.85rem;
   }
 
-  @media (min-width: 1385px) {
+  @media (min-width: 1425px) {
     img.chamomile__img {
       position: absolute;
       top: -175px;
@@ -178,7 +178,4 @@ const { page } = Astro.props;
     }
   }
 </style>
-<script>
-  const footer = document.getElementById("main_footer");
-  console.log(footer);
-</script>
+<script></script>
