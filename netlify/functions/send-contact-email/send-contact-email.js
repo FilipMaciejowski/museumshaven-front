@@ -67,8 +67,8 @@ export const handler = async (event) => {
         from: FROM_EMAIL_ADDRESS,
         to: toEmailAddress,
         "h:Reply-To": email,
-        subject: "New form submission",
-        text: `${content.trim()}\n\n${name.trim()}\n\nEposten er sendt fra et skjema på bybarbro.no`,
+        subject: "Ny melding fra museumshaven.no",
+        text: `${content.trim()}\n\n${name.trim()}\n\nEposten er sendt fra et skjema på museumshaven.no`,
       };
 
       await mailgun.messages().send(emailData);
