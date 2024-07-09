@@ -2,15 +2,13 @@ const sanitizeHtml = require("sanitize-html");
 const {
   MAILGUN_API_KEY,
   MAILGUN_DOMAIN,
-  MAILGUN_URL,
   FROM_EMAIL_ADDRESS,
   TO_EMAIL_ADDRESSES,
 } = process.env;
 const mailgun = require("mailgun-js")({
   apiKey: MAILGUN_API_KEY,
   domain: MAILGUN_DOMAIN,
-  url: MAILGUN_URL,
-  host: "api.mailgun.net",
+  host: "api.eu.mailgun.net",
 });
 
 const validateFormInputs = (email, name, content) => {
