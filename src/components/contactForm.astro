@@ -1,5 +1,5 @@
 ---
-const baseUrl = Astro.url.origin;
+const baseUrl = import.meta.env.SITE_URL;
 ---
 
 <form class="form__container" id="contactForm" autocomplete="off">
