@@ -1,4 +1,4 @@
-const sanitizeHtml = require("sanitize-html");
+import sanitizeHtml from "sanitize-html";
 const {
   MAILGUN_API_KEY,
   MAILGUN_DOMAIN,
